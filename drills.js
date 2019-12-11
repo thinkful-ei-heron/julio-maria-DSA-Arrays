@@ -52,49 +52,45 @@ function spaceString(str) {
 }
 console.log(spaceString('www.thinkful.com /tauh ida parv een'));
 
+//#6.
 
-//#6. 
-
-  function arrFilter(arr, n) {
-     let newArr = []; 
-     for (let i = 0; i < arr.length; i++) { 
-       if (arr[i] > 5) { 
-         newArr.push(arr[i]); 
-        } 
-      } return newArr; 
-  } 
-  
-  console.log(arrFilter([1, 2, 5, 6, 7], 5));
-
-  //#7. 
-  function maxSumInArr(arr) {
-    let max = arr[0];
-    let sum = 0;
-
-    for (let i = 0; i < arr.length; i++) {
-      sum = sum + arr[i]
-        if( sum > max) {
-          max = sum
-        }
+function arrFilter(arr, n) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 5) {
+      newArr.push(arr[i]);
     }
-    return max
-
   }
+  return newArr;
+}
 
-  //#8. 
+console.log(arrFilter([1, 2, 5, 6, 7], 5));
 
-  function mergeArr(arrOne, arrTwo) {
+//#7.
+function maxSumInArr(arr) {
+  let max = arr[0];
+  let sum = 0;
 
-    let newarr = [...arrOne, ...arrTwo]
-    // console.log(newarr)
-    return newarr.sort((a,b) => a-b)
-
+  for (let i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
+    if (sum > max) {
+      max = sum;
+    }
   }
+  return max;
+}
 
+//#8.
 
-console.log(mergeArr([1, 3, 6, 8, 11], [2, 3, 5, 8, 9, 10]))
+function mergeArr(arrOne, arrTwo) {
+  let newarr = [...arrOne, ...arrTwo];
+  // console.log(newarr)
+  return newarr.sort((a, b) => a - b);
+}
 
-//#9. 
+console.log(mergeArr([1, 3, 6, 8, 11], [2, 3, 5, 8, 9, 10]));
+
+//#9.
 function arrFilterChar(str, char) {
   let newStr = ``;
   let badChars = [];
@@ -115,60 +111,54 @@ console.log(arrFilterChar('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'));
 function products(arr) {
   let sum = 1;
   let newArr = [];
-  for(let i= 0; i < arr.length; i++){
+  for (let i = 0; i < arr.length; i++) {
     sum = sum * arr[i];
   }
-  for(let j=0; j < arr.length; j++){
-    newArr.push( sum/ arr[j]);
+  for (let j = 0; j < arr.length; j++) {
+    newArr.push(sum / arr[j]);
   }
-  return newArr
+  return newArr;
 }
 
-console.log(products([1,3,9,4]))
+console.log(products([1, 3, 9, 4]));
 
 //#11
 function twoDArray(arr) {
- const row= [];  //x
- const col= []; //y 
+  const row = []; //x
+  const col = []; //y
 
-  for (let i = 0; i < arr.length; i++) {  //y
-    for (let j = 0; j < arr[i].length; j++) {     //x
-      if( arr[i][j] === 0) {
-        row.push(j)
-        col.push(i)
-      }
-    }
-}  
   for (let i = 0; i < arr.length; i++) {
-    if( row.includes(i)) {
-        for (let j = 0; j < arr[i].length; j++) {
-          arr[i][j] = 0
-        }
-      }
- 
-for (let j = 0; j < arr[i].length; j++) {
-    if( col.includes(j)) {
-          arr[i][j] = 0
-        }
+    //y
+    for (let j = 0; j < arr[i].length; j++) {
+      //x
+      if (arr[i][j] === 0) {
+        row.push(j);
+        col.push(i);
       }
     }
-      return arr
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (row.includes(i)) {
+      arr[i] = [0, 0, 0, 0, 0];
     }
 
-
-      twoDArray(
-          [
-          [1,0,1,1,0],
-          [0,1,1,1,0],
-          [1,1,1,1,1],
-          [1,0,1,1,1],
-          [1,1,1,1,1]
-        ]
-      )  
-  
-
-
-
+    for (let j = 0; j < arr[i].length; j++) {
+      if (col.includes(j)) {
+        arr[i][j] = 0;
+      }
+    }
+  }
+  return arr;
+}
+console.log(
+  twoDArray([
+    [1, 0, 1, 1, 0],
+    [0, 1, 1, 1, 0],
+    [1, 1, 1, 1, 1],
+    [1, 0, 1, 1, 1],
+    [1, 1, 1, 1, 1],
+  ])
+);
 
 //#12
 // function stringRotation(strOne, strTwo) {
@@ -179,3 +169,28 @@ for (let j = 0; j < arr[i].length; j++) {
 //   return false;
 // }
 // console.log(stringRotation(‘amazon’, ‘azonam’));
+
+function twoDArray(arr) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push(arr[i]);
+    for (let j = 0; j < arr[i].length; j++) {
+      if (arr[i][j] === 0) {
+        newArr[i] = [0, 0, 0, 0, 0]; ///sets row to five zeros
+        newArr.forEach(row => {
+          row[j] = 0;
+        }); ///sets each column to zero
+      }
+    }
+  }
+  return newArr;
+}
+console.log(
+  twoDArray([
+    [1, 0, 1, 1, 0],
+    [0, 1, 1, 1, 0],
+    [1, 1, 1, 1, 1],
+    [1, 0, 1, 1, 1],
+    [1, 1, 1, 1, 1],
+  ])
+);
