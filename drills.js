@@ -51,3 +51,131 @@ function spaceString(str) {
   return conf;
 }
 console.log(spaceString('www.thinkful.com /tauh ida parv een'));
+
+
+//#6. 
+
+  function arrFilter(arr, n) {
+     let newArr = []; 
+     for (let i = 0; i < arr.length; i++) { 
+       if (arr[i] > 5) { 
+         newArr.push(arr[i]); 
+        } 
+      } return newArr; 
+  } 
+  
+  console.log(arrFilter([1, 2, 5, 6, 7], 5));
+
+  //#7. 
+  function maxSumInArr(arr) {
+    let max = arr[0];
+    let sum = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+      sum = sum + arr[i]
+        if( sum > max) {
+          max = sum
+        }
+    }
+    return max
+
+  }
+
+  //#8. 
+
+  function mergeArr(arrOne, arrTwo) {
+
+    let newarr = [...arrOne, ...arrTwo]
+    // console.log(newarr)
+    return newarr.sort((a,b) => a-b)
+
+  }
+
+
+console.log(mergeArr([1, 3, 6, 8, 11], [2, 3, 5, 8, 9, 10]))
+
+//#9. 
+function arrFilterChar(str, char) {
+  let newStr = ``;
+  let badChars = [];
+  for (let i = 0; i < char.length; i++) {
+    badChars = [...badChars, char[i]];
+  }
+  console.log(badChars);
+  for (let i = 0; i < str.length; i++) {
+    if (!badChars.includes(str[i])) {
+      newStr = newStr + str[i];
+    }
+  }
+  return newStr;
+}
+console.log(arrFilterChar('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'));
+
+//#10.
+function products(arr) {
+  let sum = 1;
+  let newArr = [];
+  for(let i= 0; i < arr.length; i++){
+    sum = sum * arr[i];
+  }
+  for(let j=0; j < arr.length; j++){
+    newArr.push( sum/ arr[j]);
+  }
+  return newArr
+}
+
+console.log(products([1,3,9,4]))
+
+//#11
+function twoDArray(arr) {
+ const row= [];  //x
+ const col= []; //y 
+
+  for (let i = 0; i < arr.length; i++) {  //y
+    for (let j = 0; j < arr[i].length; j++) {     //x
+      if( arr[i][j] === 0) {
+        row.push(j)
+        col.push(i)
+      }
+    }
+}  
+  for (let i = 0; i < arr.length; i++) {
+    if( row.includes(i)) {
+        for (let j = 0; j < arr[i].length; j++) {
+          arr[i][j] = 0
+        }
+      }
+ 
+for (let j = 0; j < arr[i].length; j++) {
+    if( col.includes(j)) {
+          arr[i][j] = 0
+        }
+      }
+    }
+      return arr
+    }
+
+
+      twoDArray(
+          [
+          [1,0,1,1,0],
+          [0,1,1,1,0],
+          [1,1,1,1,1],
+          [1,0,1,1,1],
+          [1,1,1,1,1]
+        ]
+      )  
+  
+
+
+
+
+//#12
+// function stringRotation(strOne, strTwo) {
+//   for (let i = 0; i < strOne.length; i++) {
+//     if (strTwo[i] + strTwo.slice(i + 1) + strTwo.slice(0, i) === strOne)
+//       return true;
+//   }
+//   return false;
+// }
+// console.log(stringRotation(‘amazon’, ‘azonam’));
